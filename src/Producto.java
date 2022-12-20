@@ -67,6 +67,7 @@ public class Producto {
     }
 
     //metodos
+    //EL WARNING DE ESTA FUNCION ME PREOCUPA
     public Producto cargar(){
 
         Scanner entrada = new Scanner(System.in);
@@ -87,6 +88,6 @@ public class Producto {
     }
 
     public void mostrar(){
-
+        System.out.println("salu2 a whelee");
     }
 }

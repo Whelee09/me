@@ -27,27 +27,46 @@ public class Principal {
         for (int i = 0; i< cargarDatos.length; i++){
             cargarDatos[i] = new Producto();
             cargarDatos[i].cargar();
+            cargarDatos[i].mostrar();
         }
 
 
-        System.out.println("\n------------------------------------------------------");
-        System.out.println("------------------------------------------------------");
+        System.out.println("------------------------------------------------------\n");
         System.out.println("Ahora calcularemos la cantidad promedia producida");
         System.out.println("\n------------------------------------------------------");
-        System.out.println("------------------------------------------------------");
+
         int sumatoria = 0;
-        double promedio=65765;
+        double promedio, costoTotal=0,ventas_Total=0;
 
-        for (int i = 0; i < cargarDatos.length; i++) {
-            sumatoria += cargarDatos[i].getCantiProducida();
-            System.out.println(cargarDatos[i].getCantiProducida());
 
-            System.out.println(sumatoria);
+        for (Producto iterador : cargarDatos) {
+            sumatoria += iterador.getCantiProducida();
+            costoTotal += iterador.precioPorUnidad * iterador.cantiProducida;
+            ventas_Total += iterador.precioVenta * iterador.cantiProducida;
         }
         System.out.println(sumatoria);
         promedio = (double) sumatoria / (double)cargarDatos.length;
 
         System.out.println("el promedio es: " + promedio);
+
+
+        System.out.println("------------------------------------------------------\n");
+        System.out.println("Ahora Calcularemos el total en Bs. que se encuentra en Almacén, debido a la producción del último mes. ");
+        System.out.println("\n------------------------------------------------------");
+
+        System.out.println("EL total en bs en producicon del ultimo mes es de:" + costoTotal);
+
+        System.out.println("------------------------------------------------------\n");
+        System.out.println(" toda la producción del último mes se vendió?(si/no)");
+        String resp = entrada.nextLine();
+        System.out.println("\n------------------------------------------------------");
+
+        if (resp.equals("si")){
+            System.out.println("las ganancias para la empresa son de: " + (ventas_Total-costoTotal));
+        }
+
+
+
 
 
     }
